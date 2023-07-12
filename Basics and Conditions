@@ -1,0 +1,210 @@
+//You Must be including this file "#include <stdio.h>" and "#include <stdlib.h>" . 
+// First code is always Hello World :) Everyone know this.
+
+int main()
+{
+  printf("Hello World!");
+
+  return 0;
+}
+
+// The Second one is more complicate than number one :) But this is absolutely easy part.
+
+int main()
+{
+    float pressure,constantR;
+
+    int numberOfMoles,volume,heat;
+
+    constantR = 0,82;
+
+    printf("Kabin hacmini giriniz:");
+    scanf("%d",&volume);
+    printf("Kaptaki mol sayisini giriniz:");
+    scanf("%d",&numberOfMoles);
+    printf("Ortam Sýcaklýðýný Giriniz:");
+    scanf("%d",&heat);
+
+    pressure = (numberOfMoles * heat * constantR) / volume;
+
+    printf("%d hacimli kaptaki gazýn basýncý: %f/n/n/n",volume,pressure);
+    return 0;
+}
+
+// This is the find the sum of the digits of the 4 digit number.
+
+int main()
+{
+    int myNumber,bolum,kalan,sum;
+    sum = 0;
+
+    printf("Lütfen 4 basamakli bir sayi giriniz:");
+    scanf("%d",&myNumber);
+    //4.Basamak
+    bolum = myNumber / 1000;
+    sum += bolum;
+    kalan = myNumber % 1000;
+    //3.Basamak
+    bolum = kalan / 100;
+    sum += bolum;
+    kalan = kalan % 100;
+    //2.Basamak
+    bolum = kalan / 10;
+    sum += bolum;
+    kalan = kalan %10;
+    //1.Basamak
+    sum += kalan;
+
+    printf("4 Basamakli sayinin rakamlari toplami: %d",sum);
+    return 0;
+}
+
+// This is the basic one. 
+
+int main()
+
+{
+    int myNumber,first,second;
+
+    printf("Lutfen sayi giriniz:");
+    scanf("%d",&myNumber);
+
+    first=myNumber% 10;
+    second= (myNumber% 100)/10;
+
+    printf("\nSayinin onlar basamagi:%d\n",second);
+    printf("Sayinin birler basamagi:%d\n",first);
+    return 0;
+}
+
+// Arithmatic Average.
+
+int main()
+{
+    float a,b,c,d,average;
+
+    printf("Lutfen 4 sayi giriniz:");
+    scanf("%f,%f,%f,%f",&a,&b,&c,&d);
+
+    average=(a+b+c+d)/4;
+
+    printf("Sayilarin aritmatik ortalaması:%f\n",average);
+
+    return 0;
+}
+
+// I am trying something new for me. About the inflation :)
+
+int main()
+{
+    float odencekFatura,eskiBirimFiyat,yeniBirimFiyat;
+    float enflasyon,eskiAboneUcreti,yeniAboneUcreti;
+    int yeniOkuma,eskiOkuma,toplamHarcananElektrik;
+
+    printf("Enflasyon oranini giriniz:");
+    scanf("%f",&enflasyon);
+    printf("Onceki aya ait birim fiyat miktarini girin:");
+    scanf("%f",&eskiBirimFiyat);
+    printf("Onceki aya ait abonelik ucretini giriniz:");
+    scanf("%f",&eskiAboneUcreti);
+    printf("Bir onceki aya ait okuma degerini giriniz:");
+    scanf("%d",&eskiOkuma);
+    printf("Bu aya ait okuma degerini giriniz:");
+    scanf("%d",&yeniOkuma);
+
+    toplamHarcananElektrik= yeniOkuma-eskiOkuma;
+    yeniBirimFiyat=eskiBirimFiyat*(1+enflasyon/100);
+    yeniAboneUcreti=eskiAboneUcreti*(1+enflasyon/100);
+    odencekFatura=toplamHarcananElektrik*yeniBirimFiyat+yeniAboneUcreti;
+    printf("\nodeyeceginiz fatura tutari:%f",odencekFatura);
+
+    return 0;
+
+}
+
+//This one is the calculator that find discount price and general sum for the book price.
+
+int main()
+{
+    int bookPrice,orderQuantity;
+    float discountRate,noDiscountPrice,discountPrice,sum;
+
+    bookPrice = 20;
+    orderQuantity= 0;
+
+    printf("Lütfen almak istediginiz kitap miktarini giriniz:");
+    scanf("%d",&orderQuantity);
+
+    if(orderQuantity >= 60){
+        discountRate = 0.30;
+    }else{
+        if(orderQuantity >=30 && orderQuantity<60){
+            discountRate = 0.20;
+        }else if(orderQuantity >= 10 && orderQuantity<30){
+            discountRate = 0.12;
+        }else{
+            discountRate = 0.01;
+        }
+    }
+    noDiscountPrice = bookPrice * orderQuantity;
+    printf("You are no Discount Price is %.2fTL \n\n",noDiscountPrice);
+    discountPrice = bookPrice * orderQuantity * discountRate;
+    printf("Your discount price is %.2fTL \n\n",discountPrice);
+    sum = noDiscountPrice - discountPrice;
+    printf("Your total price is %.2fTL \n\n",sum);
+
+    return 0;
+}
+
+//This is find type of triangle. For example; narrow angle , wide angel , right angled triangle.
+
+int main()
+{
+    int a,b,c;
+    char longestside;
+
+    printf("Enter the sight of lengts of the triangle:");
+    scanf("%d%d%d",&a,&b,&c);
+
+    if(a>b && a>c){
+        longestside = a;
+    }else if(b>a && b>c){
+        longestside = b;
+    }else{
+        longestside = c;
+    }
+
+    if(longestside == 'a'){
+        if(a*a == b*b + c*c){
+            printf("Girilen ucgen dik acili ucgendir.");
+        }else if(a*a > b*b + c*c){
+            printf("Girilen ucgen genis acili ucgendir.");
+        }else if(a*a < b*b + c*c){
+            printf("Girilen ucgen dar acili bir ucgendir.");
+        }else{
+            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+        }
+    }else if(longestside == 'b'){
+        if(b*b == a*a + c*c){
+            printf("Girilen ucgen dik acili ucgendir.");
+        }else if(b*b > a*a + c*c){
+            printf("Girilen ucgen genis acili ucgendir.");
+        }else if(b*b < a*a + c*c){
+            printf("Girilen ucgen dar acili bir ucgendir.");
+        }else{
+            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+        }
+    }else{
+        if(c*c == b*b + a*a){
+            printf("Girilen ucgen dik acili ucgendir.");
+        }else if(c*c > b*b + a*a){
+            printf("Girilen ucgen genis acili ucgendir.");
+        }else if(c*c < b*b + a*a){
+            printf("Girilen ucgen dar acili bir ucgendir.");
+        }else{
+            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+        }
+    }
+
+}
+
