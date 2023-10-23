@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <iostream> 
+#include <stdlib.h>
+
 
 int main()
 {
@@ -18,3 +21,61 @@ int main()
 	return 0;
 }
 
+
+int main()
+{
+    int a,b,c;
+    char longestside;
+
+    printf("Enter the sight of lengts of the triangle:");
+    scanf("%d%d%d",&a,&b,&c);
+    
+    if(abs(a-c)<= b && b <= a+c && abs(a-b) <= c && c <= a+b && abs(b-c) <= a && a<= b+c){
+    	
+	    	 if(a>b && a>c){
+	        longestside = a;
+	    }else if(b>a && b>c){
+	        longestside = b;
+	    }else{
+	        longestside = c;
+	    }
+	
+	    if(longestside == 'a'){
+	        if(a*a == b*b + c*c){
+	            printf("Girilen ucgen dik acili ucgendir.");
+	        }else if(a*a > b*b + c*c){
+	            printf("Girilen ucgen genis acili ucgendir.");
+	        }else if(a*a < b*b + c*c){
+	            printf("Girilen ucgen dar acili bir ucgendir.");
+	        }else{
+	            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+	        }
+	    }else if(longestside == 'b'){
+	        if(b*b == a*a + c*c){
+	            printf("Girilen ucgen dik acili ucgendir.");
+	        }else if(b*b > a*a + c*c){
+	            printf("Girilen ucgen genis acili ucgendir.");
+	        }else if(b*b < a*a + c*c){
+	            printf("Girilen ucgen dar acili bir ucgendir.");
+	        }else{
+	            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+	        }
+	    }else{
+	        if(c*c == b*b + a*a){
+	            printf("Girilen ucgen dik acili ucgendir.");
+	        }else if(c*c > b*b + a*a){
+	            printf("Girilen ucgen genis acili ucgendir.");
+	        }else if(c*c < b*b + a*a){
+	            printf("Girilen ucgen dar acili bir ucgendir.");
+	        }else{
+	            printf("Girilen kenarlar bir ucgen olusturmaz\n");
+	        }
+	    }	
+		}
+	else{
+		printf("Patladi....");
+		return 0;
+	}
+    
+
+}
